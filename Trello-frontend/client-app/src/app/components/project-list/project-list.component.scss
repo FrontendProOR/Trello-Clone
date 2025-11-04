@@ -1,0 +1,41 @@
+.container {
+    max-width: 1200px;
+  }
+  
+  .card {
+    background-color: #eaf4fc; /* Light blue background */
+    border: 1px solid #007bff; /* Thin blue border */
+  }
+  
+  .card-title {
+    font-weight: bold;
+    font-size: 1.25rem;
+  }
+  
+  .card-text {
+    font-size: 0.9rem;
+  }
+  
+  button {
+    font-size: 0.85rem;
+  }
+  
+  .badge {
+    font-size: 0.8rem;
+    padding: 0.4em 0.6em;
+  }
+  
+  @media (max-width: 768px) {
+    .card-title {
+      font-size: 1.1rem;
+    }
+  
+    .card-text {
+      font-size: 0.8rem;
+    }
+  
+    button {
+      font-size: 0.75rem;
+    }
+  }
+  

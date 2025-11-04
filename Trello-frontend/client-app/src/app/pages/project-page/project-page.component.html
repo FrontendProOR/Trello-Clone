@@ -1,0 +1,29 @@
+<div *ngIf="tasks.length > 0; else noTasks">
+  <div class="container">
+    <h2 class="my-4">Taskovi za projekat</h2>
+    <div class="row">
+      <div *ngFor="let task of tasks" class="col-md-4">
+        <div class="card">
+          <div class="card-header">
+            <h6>{{ task.name }}</h6>
+          </div>
+          <div class="card-body">
+            <p><strong>Opis:</strong> {{ task.description }}</p>
+            <p><strong>Status:</strong> <span class="badge" [ngClass]="getStatusClass(task.status)">{{ task.status }}</span></p>
+            <p><strong>Prioritet:</strong> <span class="badge" [ngClass]="getPriorityClass(task.priority)">{{ task.priority }}</span></p>
+            <p><strong>Datum kreiranja:</strong> {{ task.createdAt | date:'short' }}</p>
+            <p><strong>Datum isteka:</strong> {{ task.dueDate | date:'short' }}</p>
+            <p><strong>Pridružen korisnik:</strong> {{ task.assignedTo || 'Nema korisnika' }}</p>
+            <button class="btn btn-danger" (click)="deleteTask(task.id)">Obriši task</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #noTasks>
+  <div class="container">
+    <p>Ovaj projekat nema taskove.</p>
+  </div>
+</ng-template>

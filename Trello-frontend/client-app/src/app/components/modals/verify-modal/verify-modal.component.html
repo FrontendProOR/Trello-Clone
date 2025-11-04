@@ -1,0 +1,40 @@
+<div class="modal-header">
+    <h5 class="modal-title">Email Verification</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+  </div>
+  <div class="modal-body">
+    <p>A verification code has been sent to your email address. Please enter the code below to verify your email.</p>
+    <form>
+      <div class="mb-3">
+        <label for="emailInput" class="form-label">Email Address</label>
+        <input
+          type="email"
+          id="emailInput"
+          class="form-control"
+          [(ngModel)]="email"
+          name="email"
+          required
+          placeholder="Enter your email"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="codeInput" class="form-label">Verification Code</label>
+        <input
+          type="text"
+          id="codeInput"
+          class="form-control"
+          [(ngModel)]="code"
+          name="code"
+          required
+          placeholder="Enter the code"
+        />
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="closeModal()">Cancel</button>
+    <button type="button" class="btn btn-primary" [disabled]="!email || !code" (click)="submitVerification()">
+      Verify
+    </button>
+  </div>
+  

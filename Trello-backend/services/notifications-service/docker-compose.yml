@@ -1,0 +1,34 @@
+version: "3.8"
+
+services:
+  notifications-service:
+    build:
+      context: ./Trello-backend/services/notifications-service
+      dockerfile: Dockerfile
+    container_name: notifications-service
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+    depends_on:
+      cassandra:
+        condition: service_healthy
+    networks:
+      - trello-clone_trello-network
+
+ cassandra:
+    image: cassandra:5
+    container_name: cassandra
+    ports:
+      - "9042:9042"
+    healthcheck:
+      test: ["CMD-SHELL", "cqlsh -e 'describe cluster'"]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+    networks:
+      - trello-clone_trello-network
+
+networks:
+  trello-clone_trello-network:
+    driver: bridge

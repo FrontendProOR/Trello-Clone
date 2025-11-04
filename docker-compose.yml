@@ -1,0 +1,129 @@
+version: "3.8"
+
+services:
+  users-service:
+    build:
+      context: ./Trello-backend/services/users-service
+      dockerfile: Dockerfile
+    container_name: users-service
+    ports:
+      - "8081:8080"
+    env_file:
+      - .env
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017
+    depends_on:
+      - mongodb
+    networks:
+      - trello-network
+
+  projects-service:
+    build:
+      context: ./Trello-backend/services/projects-service
+      dockerfile: Dockerfile
+    container_name: projects-service
+    ports:
+      - "8082:8080"
+    env_file:
+      - .env
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017
+    depends_on:
+      - mongodb
+    networks:
+      - trello-network
+
+  tasks-service:
+    build:
+      context: ./Trello-backend/services/tasks-service
+      dockerfile: Dockerfile
+    container_name: tasks-service
+    ports:
+      - "8083:8080"
+    env_file:
+      - .env
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017
+    depends_on:
+      - mongodb
+    networks:
+      - trello-network
+
+  notifications-service:
+    build:
+      context: ./Trello-backend/services/notifications-service
+      dockerfile: Dockerfile
+    container_name: notifications-service
+    ports:
+      - "8084:8080"
+    env_file:
+      - .env
+    depends_on:
+      - cassandra
+      - mongodb
+    networks:
+      - trello-network
+    environment:
+      - CASSANDRA_HOST=cassandra
+      - CASSANDRA_PORT=9042
+      - MONGODB_URI=mongodb://mongodb:27017
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: pass
+      MONGO_INITDB_DATABASE: mongoDemo
+    networks:
+      - trello-network
+
+  cassandra:
+    image: cassandra:latest
+    container_name: cassandra
+    healthcheck:
+      test: ["CMD", "cqlsh", "-e", "describe keyspaces"]
+      interval: 5s
+    ports:
+      - "9042:9042"
+    networks:
+      - trello-network
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./Trello-backend/config-server/nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - users-service
+      - projects-service
+      - tasks-service
+      - notifications-service
+    networks:
+      - trello-network
+
+  client-app:
+    build:
+      context: ./Trello-frontend/client-app
+      dockerfile: Dockerfile
+    container_name: client-app
+    ports:
+      - "4200:80"
+    depends_on:
+      - nginx
+    networks:
+      - trello-network
+
+volumes:
+  mongo-data:
+    driver: local
+
+networks:
+  trello-network:
+    driver: bridge

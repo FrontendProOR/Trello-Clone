@@ -1,0 +1,32 @@
+<div class="notification-container">
+  <h3>My Notifications</h3>
+
+  <!-- Lista notifikacija ako postoje -->
+  <ul *ngIf="notifications && notifications.length > 0; else noNotifications">
+    <li *ngFor="let notification of notifications">
+      <!-- Prikaz poruke notifikacije -->
+      <p>{{ notification.message }}</p>
+
+      <!-- Prikaz datuma ako je dostupan -->
+      <small *ngIf="notification.createdAt">
+        {{ notification.createdAt | date: 'short' }}
+      </small>
+      <small *ngIf="!notification.createdAt" class="error">
+        Invalid date
+      </small>
+
+      <!-- Dugme za označavanje notifikacije kao pročitane -->
+      <button *ngIf="!notification.isRead" (click)="markAsRead(notification.id)">
+        Mark as Read
+      </button>
+    </li>
+  </ul>
+
+  <!-- Poruka koja se prikazuje ako nema notifikacija -->
+  <ng-template #noNotifications>
+    <p>No notifications available.</p>
+  </ng-template>
+
+  <!-- Poruka o grešci ako postoji -->
+  <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+</div>

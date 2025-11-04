@@ -1,0 +1,47 @@
+<div class="profile-container container py-5">
+    <div *ngIf="user" class="text-center">
+      <h2 class="text-primary font-weight-bold mb-4">User Profile</h2>
+  
+      <!-- User Information Section -->
+      <div class="user-info mb-5">
+        <p><strong class="font-weight-bold">First Name:</strong> {{ user.first_name || "" }}</p>
+        <p><strong class="font-weight-bold">Last Name:</strong> {{ user.last_name || "" }}</p>
+        <p><strong class="font-weight-bold">Username:</strong> {{ user.username || "" }}</p>
+        <p><strong class="font-weight-bold">Email:</strong> {{ user.email || "" }}</p>
+        <p><strong class="font-weight-bold">Role:</strong> {{ user.role || "" }}</p>
+  
+        <button (click)="openEditUserModal(user.id)" class="btn btn-info btn-lg mx-2 my-2">Edit User</button>
+        <button (click)="openChangePasswordModal( user.id )" class="btn btn-info btn-lg mx-2 my-2">Change Password</button>
+        <button (click)="openDeleteAccountModal()" class="btn btn-danger btn-lg mx-2 my-2">Delete Account</button>
+  
+      </div>
+  
+      <!-- Manager Projects Section -->
+      <div *ngIf="role === 'manager'" class="projects-section mb-5">
+        <h3 class="text-primary">Manager Projects</h3>
+        <div *ngIf="managerProjects?.length ">
+          <ul class="list-group">
+            <li *ngFor="let project of managerProjects" class="list-group-item">{{ project.name }}</li>
+          </ul>
+        </div>
+        <ng-template #noProjects>
+          <p>No projects found for manager role.</p>
+        </ng-template>
+      </div>
+  
+      <!-- Member Projects Section -->
+      <div *ngIf="role === 'member'" class="projects-section">
+        <h3 class="text-primary">Member Projects</h3>
+        <div *ngIf="memberProjects?.length">
+          <ul class="list-group">
+            <li *ngFor="let project of memberProjects" class="list-group-item">{{ project.name }}</li>
+          </ul>
+        </div>
+        <ng-template #noProjects>
+          <p>No projects found for member role.</p>
+        </ng-template>
+      </div>
+    </div>
+  
+  </div>
+  

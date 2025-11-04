@@ -1,0 +1,67 @@
+/* Stil za status */
+.completed {
+    background-color: #28a745; /* Zeleni */
+    color: white;
+  }
+  
+  .pending {
+    background-color: #ffc107; /* Žuti */
+    color: white;
+  }
+  
+  .inProgress {
+    background-color: #17a2b8; /* Plavi */
+    color: white;
+  }
+  
+  /* Stil za prioritet */
+  .highPriority {
+    background-color: #dc3545; /* Crveni */
+    color: white;
+  }
+  
+  .mediumPriority {
+    background-color: #ffc107; /* Žuti */
+    color: white;
+  }
+  
+  .lowPriority {
+    background-color: #28a745; /* Zeleni */
+    color: white;
+  }
+  
+  /* Stilizovanje kartica */
+  .card {
+    width: 300px; /* Širina kartice */
+    margin: 10px; /* Razmak između kartica */
+    border-radius: 10px; /* Zaobljeni ivici */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Blagi senka */
+    display: inline-block; /* Da bi se kartice prikazivale pored jedna druge */
+    vertical-align: top; /* Poravnanje kartica */
+  }
+  
+  /* Stilizovanje naslova taska - pozadina plava, tekst beli */
+  .card-header {
+    background-color: #007bff; /* Plava pozadina */
+    color: white; /* Beli tekst */
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    text-align: center;
+  }
+  
+  /* Stilizovanje body dela kartice */
+  .card-body {
+    color: black; /* Bela boja teksta */
+    background-color: white; /* Tamnija pozadina za tekst */
+    padding: 15px;
+    border-radius: 10px;
+  }
+  
+  /* Dodatne stilizacije za responsivnost */
+  @media (max-width: 768px) {
+    .card {
+      width: 100%; /* Na manjim ekranima kartice zauzimaju celu širinu */
+    }
+  }
+  

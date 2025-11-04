@@ -1,0 +1,14 @@
+.captcha-container img {
+  max-width: 100%; /* Prilagođava širinu slike roditeljskom elementu */
+  height: auto; /* Održava proporcije slike */
+  cursor: pointer;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: rgb(
+    104,
+    184,
+    227
+  ); /* Dodaje naznaku da se na sliku može kliknuti */
+}

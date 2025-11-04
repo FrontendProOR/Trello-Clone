@@ -1,0 +1,53 @@
+/* Stil za kontejner notifikacija */
+.notification-container {
+  padding: 1rem;
+  margin-top: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+/* Naslov sekcije */
+.notification-container h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Stil za listu notifikacija */
+.notification-container ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Pojedinačna stavka u listi */
+.notification-container li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Stil za poslednju stavku */
+.notification-container li:last-child {
+  border-bottom: none;
+}
+
+/* Stil za dugme */
+.notification-container button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+/* Hover efekat za dugme */
+.notification-container button:hover {
+  background-color: #0056b3;
+}
+
+/* Stil za greške */
+.error {
+  color: red;
+  font-size: 0.9rem;
+}

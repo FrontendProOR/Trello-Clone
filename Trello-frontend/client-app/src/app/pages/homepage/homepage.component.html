@@ -1,0 +1,135 @@
+<div class="container text-center my-5">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-md-12">
+      <h1 class="display-4 mb-4">Welcome to Your Trello Clone!</h1>
+      <p class="lead fs-4">
+        Organize your projects, streamline your tasks, and boost your productivity with our Trello-inspired task management app.
+      </p>
+      <div class="my-4">
+        <a class="btn btn-primary btn-lg me-3 fw-bold" (click)="openRegisterModal()">Get Started</a>
+        <a class="btn btn-outline-secondary btn-lg" (click)="openLoginModal()">Already have an account? Login</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="trelloSlider" class="carousel slide my-5" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img
+          src="https://placehold.co/600x400"
+          class="d-block w-100"
+          alt="Create Boards"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://placehold.co/600x400"
+          class="d-block w-100"
+          alt="Collaborate Effortlessly"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://placehold.co/600x400"
+          class="d-block w-100"
+          alt="Track Progress"
+        />
+      </div>
+    </div>
+
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#trelloSlider"
+      data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#trelloSlider"
+      data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <div class="row text-start my-5">
+    <div class="col-md-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Task Management</h5>
+          <p class="card-text">
+            Use boards, lists, and cards to manage tasks efficiently. Create to-do lists, assign deadlines, and track progress visually.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Collaboration</h5>
+          <p class="card-text">
+            Share your boards with teammates, assign tasks, and collaborate effortlessly to achieve your goals.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Productivity Insights</h5>
+          <p class="card-text">
+            Get an overview of your projects and tasks with visual data, making it easier to stay productive and meet deadlines.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="my-5">
+    <h2 class="mb-4">What Our Users Say</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <blockquote class="blockquote">
+          <p>"This app transformed the way I work! Managing tasks has never been easier."</p>
+          <footer class="blockquote-footer">Jane Doe, Project Manager</footer>
+        </blockquote>
+      </div>
+      <div class="col-md-6">
+        <blockquote class="blockquote">
+          <p>"A fantastic tool for collaboration. Our team productivity skyrocketed!"</p>
+          <footer class="blockquote-footer">John Smith, Team Lead</footer>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="bg-dark text-white py-4 mt-5">
+  <div class="container text-center">
+    <p>&copy; 2024 Trello Clone. All rights reserved.</p>
+    <div class="my-3">
+      <p><strong>Contact Us:</strong></p>
+      <ul class="list-unstyled">
+        <li>
+          <a href="https://github.com/yourusername" target="_blank" class="text-white">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </li>
+        <li>
+          <a href="https://wa.me/1234567890" target="_blank" class="text-white">
+            <i class="fab fa-whatsapp"></i> WhatsApp: +1 (234) 567-890
+          </a>
+        </li>
+        <li>
+          <a href="mailto:your.email@example.com" class="text-white">
+            <i class="fas fa-envelope"></i> your.email&#64;example.com
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>

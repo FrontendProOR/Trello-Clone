@@ -1,0 +1,29 @@
+<div class="form-container">
+  <h2>Add New Task</h2>
+  <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+    <label for="name">Task Name</label>
+    <input id="name" formControlName="name" type="text" />
+
+    <label for="description">Description</label>
+    <textarea id="description" formControlName="description"></textarea>
+
+    <label for="dueDate">Due Date</label>
+    <input id="dueDate" formControlName="dueDate" type="date" />
+
+    <label for="status">Status</label>
+    <select id="status" formControlName="status">
+      <option value="Pending">Pending</option>
+      <option value="In_Progress">In Progress</option>
+      <option value="Finished">Finished</option>
+    </select>
+
+    <label for="priority">Priority</label>
+    <select id="priority" formControlName="priority">
+      <option value="Low">Low</option>
+      <option value="Medium">Medium</option>
+      <option value="High">High</option>
+    </select>
+
+    <button type="submit" [disabled]="!taskForm.valid">Add Task</button>
+  </form>
+</div>
